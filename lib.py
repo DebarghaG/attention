@@ -15,8 +15,7 @@ class SelfAttention(nn.Module):
         self.values = nn.Linear(self.dimsHead, self.dimsHead, bias=False)
         self.keys = nn.Linear(self.dimsHead, self.dimsHead, bias=False)
         self.queries = nn.Linear(self.dimsHead, self.dimsHead, bias=False)
-        self.fullyConnected = nn.Linear(
-            numberHeads * self.dimsHead, embeddingSize)
+        self.fullyConnected = nn.Linear(numberHeads * self.dimsHead, embeddingSize)
 
     def forward(self, values, keys, query, mask):
         totalLength = query.shape[0]
